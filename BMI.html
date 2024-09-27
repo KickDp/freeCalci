@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeCalci | calculator | timer </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        body{
+            background:linear-gradient(90deg,rgba(3, 3, 55, 0.4),rgb(0,0,0),rgb(6, 48, 43));
+            backdrop-filter: brightness(-15%);
+            width:100vw;
+            height:100vh;
+        }
+        .tit {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 20px;
+            background:linear-gradient(35deg,rgb(1,1,1,0.4),rgba(16, 189, 173, 0.3),rgb(1,31,31,0));
+            padding: 10px;
+        }
+        .tit img {
+            border-radius: 25px;
+        }
+        .tit span {
+            top: 2%;
+            font-weight: 700;
+            color: rgb(16, 110, 110);
+        }
+        .nav {
+            margin-left: auto;
+        }
+        .nav-link{
+            font-weight: 500;
+            color:rgb(244, 145, 6);
+            display: block;
+            border-radius: 15px;       
+        }
+        .btn-group{
+            display: flex;
+            justify-content: center;
+            margin:10% 45% 1% 45%;
+        }
+        .btn:hover{
+            width:100px;
+            mix-blend-mode: darken;
+        }
+        .title{
+            color: rgb(244, 145, 6,0.9);
+            border-radius: 0 0 25px 25px;
+            border: none;
+            outline:none;
+            background-color: rgba(16, 189, 247, 0.5);
+            box-shadow: -8px -8px 15px rgba(29, 72, 99, 0.8), 8px 8px 15px rgba(29, 78, 99);
+            width: 300px;
+            animation: scr 0.8s;
+            text-align: center;
+            justify-content: center;
+            margin-left: 41%;
+        }
+        .input-group{
+            display:grid;
+            justify-content: center;
+            align-items: center;
+            margin:30px 0;
+            position: relative;
+        }
+        input{
+            width: 60vh;
+            height: 80px;
+            background:rgba(16, 189, 173, 0.3);
+            font-size: 40px;
+            color:cornsilk;
+            padding:4px;
+            border-radius: 15px 15px 15px 15px;
+            border: none;
+            outline: none;
+        }
+        .input-group label{
+            position: absolute;
+            font-size: 30px;
+            padding: 3px;
+            font-style: fantasy;
+            top: 30px;
+            color: orange;
+            font-weight: 400;
+            background:transparent;
+            left:40%;
+            transform: translateY(-50%);
+            transition: all 0.3s ease-out;
+        }
+       .input-group input:focus ~ label,.input-group input:valid ~ label{
+        top:0;
+        font-size: 20px;
+        z-index: 1111;
+        left:38%;
+        color: orange;
+        font-weight: 600;
+       }
+       #ready{
+        display: block;
+        font-size: 20px;
+        position: relative;
+        left:37%;
+        justify-content: center;
+        align-items: center;
+       }
+       .gg{
+        position: relative;
+        margin-left: 35%;
+        color:orange;
+        font-size: 30px;
+       }
+       input:hover{
+        cursor: pointer;
+        box-shadow:8px 8px 10px goldenrod;
+        transform: translateY(10px -10px);
+       }
+       #both,#under,#healthy,#overWeight,#obessi{
+        position: absolute;
+        visibility: hidden;
+        width: 600px;;
+        margin-left: 33%;
+        margin-top: 25px;
+       }
+       .display{
+        font-size: 40px;
+        font-weight: 600;
+       }
+       @keyframes scr{
+        from{filter: opacity(0);}
+        50%{filter:opacity(0.5);}
+        70%{filter:opacity(0.7);}
+        t0{filter: opacity(1);}
+       }
+       @media screen and (max-width:1080px){
+        .title{
+            margin-left: 21%;
+        }
+        .input-group{
+            width:400px;
+            margin-left: 10%;
+        }
+        .input-group label{
+            left:20%;
+        }
+        #both,#under,#healthy,#overWeight,#obessi{
+            width:fit-content;
+            font-size: 20px;
+            margin-left:7%;
+        }
+        button.nav-link {
+                font-size: 14px;
+                padding: 5px;
+            }
+       }
+        </style>
+         <script>
+            function home(){
+                window.location.href="calc.html";
+            }
+            function timers(){
+                    window.location.href="countdown.html";
+                }
+            function stopWatch(){
+                window.location.href="stopwatch.html";
+            }
+            function bmi(){
+                window.location.href="BMI.html";
+            }
+            function currency(){
+                window.location.href="currency.html";
+            }
+        </script>
+        </head>
+        <body>
+            <div class="tit">
+                <h2><img src="logo.jpg" width="30" height="30"><span>freeCalci</span></h2>
+                <div class="nav">
+                    <div class="d-flex align-items-start">
+                        <div class="nav flex-row nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="horizontal">
+                            <button class="nav-link" onclick="home()" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</button>
+                            <button class="nav-link" onclick="timers()" id="v-pills-Timer-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Timer" type="button" role="tab" aria-controls="v-pills-Timer" aria-selected-default="true">Timer</button>
+                            <button class="nav-link" onclick="stopWatch()" id="v-pills-StopWatch-tab" data-bs-toggle="pill" data-bs-target="#v-pills-StopWatch" type="button" role="tab" aria-controls="v-pills-StopWatch" aria-selected="true">StopWatch</button>
+                            <button class="nav-link active" onclick="bmi()" id="v-pills-BMI-tab" data-bs-toggle="pill" data-bs-target="#v-pills-BMI" type="button" role="tab" aria-controls="v-pills-BMI" aria-selected="true">BMI</button>
+                            <button class="nav-link" onclick="currency()" id="v-pills-Currency-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Currency" type="button" role="tab" aria-controls="v-pills-currency" aria-selected="true">Currency</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="title">
+                <h2>BMI</h2>
+            </div>
+                    <div class="input-group">
+                        <input class="height" type="float" required>
+                        <label for="">Enter Height in c.m.</label>
+                    </div>
+                    <div class="input-group">
+                        <input class="weight" type="float" required>
+                        <label for="">Enter weight in K.g.</label>
+                    </div>
+                    <button class="btn btn-warning" id="ready"> Ready!</button>
+                    <div class="gg">
+                        <span class="btn-text">result: </span>
+                        <i class="display"></i>
+                    </div>
+            <div class="alert alert-info d-flex align-items-center" role="alert" id="both">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="info:">
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                  </svg>
+                Please fill Both height and weight values! 
+            </div>
+            <div class="alert alert-primary d-flex align-items-center" role="alert" id="under">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="primary:">
+                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                  </svg>
+                you are in Underweight ,bulk up Man! 
+            </div>
+            <div class="alert alert-success d-flex align-items-center" role="alert" id="healthy">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Success:">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                  </svg>
+                you are in healthyweight ,keep maintain it Man! 
+            </div>
+            <div class="alert alert-danger d-flex align-items-center" role="alert" id="overWeight">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Danger:">
+                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                  </svg>
+                you are in Overweight ,Go to gym! 
+            </div>
+            <div class="alert alert-warning d-flex align-items-center" role="alert" id="obessi">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                  </svg>
+                you have Obessi ,keep follow diet and hit hard the gym! 
+            </div>
+            <script>
+                let hgt=document.querySelector('.height');
+                let wgt=document.querySelector('.weight');
+                let sbt=document.getElementById('ready');
+                sbt.addEventListener('click',function(){
+                    const height=hgt.value;
+                    const weight=wgt.value;
+                    if((height==""||weight=="")||(height==0||weight==0)){
+                       document.getElementById('both').style.visibility="visible";
+                       document.getElementById('obessi').setAttribute("style","display:none");
+                       document.getElementById('under').setAttribute("style","display:none");
+                       document.getElementById('healthy').setAttribute("style","display:none");
+                       document.getElementById('overWeight').setAttribute("style","display:none");
+                    }
+                    else{
+                    const l=parseFloat((height*height)/10000);
+                    const w=(parseFloat(weight/l).toFixed(2));
+                    if(w<=18){
+                       document.getElementById('under').style.visibility="visible";
+                       document.getElementById('both').setAttribute("style","display:none");
+                       document.querySelector('.display').textContent=w;
+                       document.getElementById('overWeight').setAttribute("style","display:none");
+                       document.getElementById('obessi').setAttribute("style","display:none");
+                       document.getElementById('healthy').setAttribute("style","display:none");
+                    }
+                    else if(w>=18.5 && w<=25){
+                        document.getElementById('under').setAttribute("style","display:none");
+                    document.getElementById('both').setAttribute("style","display:none");
+                    document.getElementById('healthy').setAttribute("style","visibility:visible");
+                    document.getElementById('overWeight').setAttribute("style","display:none");
+                    document.getElementById('obessi').setAttribute("style","display:none");
+                    document.querySelector('.display').textContent=w;
+                    }
+                    else if(w>25 && w<30){
+                        document.getElementById('under').setAttribute("style","display:none");
+                    document.getElementById('both').setAttribute("style","display:none");
+                    document.getElementById('healthy').setAttribute("style","display:none");
+                    document.getElementById('obessi').setAttribute("style","display:none");
+                    document.getElementById('overWeight').setAttribute("style","visibility:visible");
+                    document.querySelector('.display').textContent=w;
+                    }
+                    else{
+                        document.getElementById('under').setAttribute("style","display:none");
+                    document.getElementById('both').setAttribute("style","display:none");
+                    document.getElementById('healthy').setAttribute("style","display:none");
+                    document.getElementById('overWeight').setAttribute("style","display:none");
+                    document.getElementById('obessi').setAttribute("style","visibility:visible");
+                    document.querySelector('.display').textContent=w;  
+                    }
+                }
+                });
+            </script>
+        </body>
+</html>

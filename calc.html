@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeCalci | calculator | timer </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+         body{
+            background-color: rgb(0, 0, 0, 0.4);
+            backdrop-filter: brightness(-15%);
+            width: 100vw;
+            height: 100vh;
+        }
+         .bg h1 {
+            color: rgb(244, 145, 6,0.9);
+            border-radius: 0 0 25px 25px;
+            border: none;
+            outline:none;
+            background-color: rgba(16, 189, 247, 0.5);
+            box-shadow: -8px -8px 15px rgba(29, 72, 99, 0.8), 8px 8px 15px rgba(29, 78, 99);
+            width: 300px;
+            animation: scr 0.8s;
+            text-align: center;
+            justify-content: center;
+            margin-left: 41%;
+        }
+
+        .dis {
+            background: linear-gradient(50deg, grey, rgba(0, 0, 0, 0.4));
+            filter: drop-shadow(8px 8px 20px rgb(16, 110, 110,0.7));
+            width: 350px;
+            height: fit-content;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            margin-left: 39%;
+            padding: 1.19rem;
+            border-radius: 25px;
+            animation:bas 0.89s;
+            transition: all 0.5s ease-in ;
+        }
+
+        .dis form input {
+            border: 0;
+            outline: 0;
+            width: 50px;
+            height: 60px;
+            border-radius: 10px;
+            box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
+            background: transparent;
+            font-size: 20px;
+            text-align: center;
+            color: aliceblue;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        form input[type="text"] {
+            width: 280px;
+            text-align: right;
+            box-shadow: -8px -8px 15px rgba(29, 72, 99, 0.8), 8px 8px 15px rgba(29, 78, 99);
+            flex: 1;
+            background-color: rgb(122, 198, 239);
+        }
+
+        .dis form input:hover {
+            background-color: rgb(122, 198, 239, 0.4);
+            color: orange;
+            font-size: 28px;
+        }
+
+        form #equal {
+            width: 280px;
+            text-align: center;
+            font-size: 43px;
+            box-shadow: -8px -8px 5px rgba(29, 72, 99, 0.8), 8px 8px 2px rgba(29, 78, 99);
+            flex: 1;
+            margin-bottom: 5px;
+            background-color: rgb(122, 198, 239);
+        }
+
+        #trig .dis {
+            background: linear-gradient(360deg, grey, rgba(0, 0, 0, 0.4));
+            width: 450px;
+            height: fit-content;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            margin-left: 37%;
+            padding: 1.19rem;
+            border-radius: 25px;
+            animation: bas 0.89s;
+            transition: all 0.5s ease-in;
+        }
+
+        #trig .dis form input {
+            border: 0;
+            outline: 0;
+            width: 50px;
+            height: 60px;
+            border-radius: 10px;
+            box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
+            background: transparent;
+            font-size: 20px;
+            text-align: center;
+            color: aliceblue;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        #trig form input[type="text"] {
+            width: 280px;
+            text-align: right;
+            box-shadow: -8px -8px 15px rgba(29, 72, 99, 0.8), 8px 8px 15px rgba(29, 78, 99);
+            flex: 1;
+            background-color: rgb(122, 198, 239);
+        }
+
+        #trig .dis form input:hover {
+            background-color: rgb(122, 198, 239, 0.4);
+            color: orange;
+            font-size: 28px;
+        }
+
+        #trig form #equal {
+            width: 280px;
+            text-align: center;
+            font-size: 43px;
+            box-shadow: -8px -8px 15px rgba(29, 72, 99, 0.8), 8px 8px 15px rgba(29, 78, 99);
+            flex: 1;
+            background-color: rgb(122, 198, 239);
+        }
+
+        #o {
+            background-color: rgb(122, 197, 241);
+            color: rgb(255, 253, 95);
+        }
+
+        .tit {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 20px;
+            background:linear-gradient(35deg,rgb(1,1,1,0.4),rgba(16, 189, 173, 0.3),rgb(1,31,31,0));
+            padding: 10px;
+        }
+        .tit img {
+            border-radius: 25px;
+        }
+        .tit span {
+            top: 2%;
+            font-weight: 700;
+            color: rgb(16, 110, 110);
+        }
+        .nav {
+            margin-left: auto;
+        }
+        .nav-link{
+            font-weight: 500;
+            color:rgb(244, 145, 6);
+            display: block;
+            border-radius: 15px;       
+        }
+        @keyframes scr{
+        from{filter: opacity(0);}
+        50%{filter:opacity(0.5);}
+        70%{filter:opacity(0.7);}
+        t0{filter: opacity(1);}
+       }
+       @keyframes bas{
+        from{height: 2px;}
+        20%{height: 250px;}
+        50%{height: 400px;}
+        75%{height: 550px;}
+        100%{height: fit-content;}
+       }
+       @media  screen and (max-width:768px) {
+        .bg h1 {
+            width: 210px;
+            margin-left: 21%;
+        }
+        .dis {
+            margin-top: 20px;
+            margin-left: 10%;
+            padding: 8px;
+            border-radius: 25px;
+            animation:bas 0.89s;
+            transition: all 0.5s ease-in ;
+        }
+        .dis form input {
+            width: 60px;
+            height: fit-content;
+            border-radius: 10px;
+            font-size: 30px;
+            margin: 10px;
+        }
+        form input[type="text"] {
+            width: 220px;
+            text-align: right;
+        }
+        #trig .dis{
+            margin-left: 4%;
+            padding: 8px;
+        }
+
+        #trig form input[type="text"] {
+            width: 240px;
+        }
+        button.nav-link {
+                font-size: 14px;
+                padding: 6px;
+            }
+
+       }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        function showTrig() {
+            document.getElementById('basic').style.display = 'none';
+            document.getElementById('trig').style.display = 'block';
+        }
+        function home(){
+            document.getElementById("v-pills-home-tab").style.display="block";
+        }
+        function home(){
+                window.location.href="calc.html";
+            }
+            function timers(){
+                    window.location.href="countdown.html";
+                }
+            function stopWatch(){
+                window.location.href="stopwatch.html";
+            }
+            function bmi(){
+                window.location.href="BMI.html";
+            }
+            function currency(){
+                window.location.href="currency.html";
+            }
+
+    </script>
+</head>
+
+<body>
+    <div id="cal">
+        <div class="col-sm">
+        <div class="tit">
+            <h2><img src="logo.jpg" width="30" height="30"><span>freeCalci</span></h2>
+            <div class="nav">
+                <div class="d-flex align-items-start">
+                    <div class="nav flex-row nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="horizontal">
+                      <button class="nav-link active" onclick="home()" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</button>
+                      <button class="nav-link" onclick="timers()" id="v-pills-Timer-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Timer" type="button" role="tab" aria-controls="v-pills-Timer" aria-selected="true">Timer</button>
+                      <button class="nav-link" onclick="stopWatch()" id="v-pills-StopWatch-tab" data-bs-toggle="pill" data-bs-target="#v-pills-StopWatch" type="button" role="tab" aria-controls="v-pills-StopWatch" aria-selected="true">StopWatch</button>
+                      <button class="nav-link" onclick="bmi()" id="v-pills-BMI-tab" data-bs-toggle="pill" data-bs-target="#v-pills-BMI" type="button" role="tab" aria-controls="v-pills-BMI" aria-selected="true">BMI</button>
+                      <button class="nav-link" onclick="currency()" id="v-pills-Currency-tab" data-bs-toggle="pill" data-bs-target="#v-pills-Currency" type="button" role="tab" aria-controls="v-pills-currency" aria-selected="true">Currency</button>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <script>
+            function sqrt(){
+                let value = parseFloat(document.getElementById('display').value);
+                document.getElementById('display').value=Math.sqrt(value);
+            }
+        </script>
+
+        <div class="bg" id="v-pills-home-tab">
+            <h1>Fast Calculator</h1>
+
+            <!-- Basic Calculator -->
+            <div id="basic" class="calci">
+                <div class="dis">
+                    <form>
+                        <input type="text" name="display" placeholder="0" id="display">
+                        <div>
+                            <input type="button" value="trg" onclick="showTrig()"></input>
+                            <input type="button" value="sqrt" onclick="sqrt()"></input>
+                            <input id="o" type="button" value="Ac" onclick="display.value=''"></input>
+                            <input id="o" type="button" value="Del"
+                                onclick="display.value = display.value.toString().slice(0, -1)"></input>
+                        </div>
+                        <div>
+                            <input type="button" value="7" onclick="display.value += '7'"></input>
+                            <input type="button" value="8" onclick="display.value += '8'"></input>
+                            <input type="button" value="9" onclick="display.value += '9'"></input>
+                            <input id="s" type="button" value="+" onclick="display.value += '+'"></input>
+                        </div>
+                        <div>
+                            <input type="button" value="4" onclick="display.value += '4'"></input>
+                            <input type="button" value="5" onclick="display.value += '5'"></input>
+                            <input type="button" value="6" onclick="display.value += '6'"></input>
+                            <input id="s" type="button" value="-" onclick="display.value += '-'"></input>
+                        </div>
+                        <div>
+                            <input type="button" value="1" onclick="display.value += '1'"></input>
+                            <input type="button" value="2" onclick="display.value += '2'"></input>
+                            <input type="button" value="3" onclick="display.value += '3'"></input>
+                            <input id="s" type="button" value="*" onclick="display.value += '*'"></input>
+                        </div>
+                        <div>
+                            <input type="button" value="0" onclick="display.value += '0'"></input>
+                            <input type="button" value="00" onclick="display.value += '00'"></input>
+                            <input type="button" value="." onclick="display.value += '.'"></input>
+                            <input id="s" type="button" value="/" onclick="display.value += '/'"></input>
+                            <input id="equal" type="button" value="="
+                                onclick="display.value = eval(display.value)"></input>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Trigonometry Calculator -->
+            <div id="trig" style="display: none;">
+                <div class="calci">
+                    <div class="dis">
+                        <form>
+                            <input type="text" name="display" placeholder="0" id="display1">
+                            <div>
+                                <input type="button" value="&#40" onclick="display.value += '('"></input>
+                                <input type="button" value="&#41" onclick="display.value += ')'"></input>
+                                <input type="button" value="log" onclick="log()"></input>
+                                <input type="button" value="Ac" onclick="display.value=''"></input>
+                                <input type="button" value="Del" onclick="display.value = display.value.toString().slice(0, -1)"></input>
+                            </div>
+                            <div>
+                                <input type="button" value="sin" onclick="sin()"></input>
+                                <input type="button" value="7" onclick="display.value += '7'"></input>
+                                <input type="button" value="8" onclick="display.value += '8'"></input>
+                                <input type="button" value="9" onclick="display.value += '9'"></input>
+                                <input type="button" value="+" onclick="display.value += '+'"></input>
+                            </div>
+                            <div>
+                                <input type="button" value="cos" onclick="cos()"></input>
+                                <input type="button" value="4" onclick="display.value += '4'"></input>
+                                <input type="button" value="5" onclick="display.value += '5'"></input>
+                                <input type="button" value="6" onclick="display.value += '6'"></input>
+                                <input type="button" value="-" onclick="display.value += '-'"></input>
+                            </div>
+                            <div>
+                                <input type="button" value="tan" onclick="tan()"></input>
+                                <input type="button" value="1" onclick="display.value += '1'"></input>
+                                <input type="button" value="2" onclick="display.value += '2'"></input>
+                                <input type="button" value="3" onclick="display.value += '3'"></input>
+                                <input type="button" value="*" onclick="display.value += '*'"></input>
+                            </div>
+                            <div>
+                                <input type="button" value="pow" onclick="pow()"></input>
+                                <input type="button" value="0" onclick="display.value += '0'"></input>
+                                <input type="button" value="00" onclick="display.value += '00'"></input>
+                                <input type="button" value="." onclick="display.value += '.'"></input>
+                                <input type="button" value="/" onclick="display.value += '/'"></input>
+                                <input id="equal" type="button" value="=" onclick="display.value = eval(display.value)"></input>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            <script>
+                function sin() {
+                    let value = parseFloat(document.getElementById('display1').value);
+                    document.getElementById('display1').value = Math.sin(value * Math.PI / 180).toFixed(4); // convert to radians and limit precision
+                }
+            
+                function cos() {
+                    let value = parseFloat(document.getElementById('display1').value);
+                    let result = Math.cos(value * Math.PI / 180); // convert to radians
+                    document.getElementById('display1').value = (Math.abs(result) < 1e-10) ? 0 : result.toFixed(4); // Handle cos(90°) ~ 0 issue
+                }
+            
+                function tan() {
+                    let value = parseFloat(document.getElementById('display1').value);
+                    let angle = value % 180; // Handle periodicity of tan()
+            
+                    // Check for undefined cases (tan(90°), tan(270°), etc.)
+                    if (angle === 90 || angle === -90) {
+                        document.getElementById('display1').value = "undefined";
+                    } else {
+                        document.getElementById('display1').value = Math.tan(value * Math.PI / 180).toFixed(4); // convert to radians and limit precision
+                    }
+                }
+            
+                function log() {
+                    let value = parseFloat(document.getElementById('display1').value);
+                    if (value <= 0) {
+                        document.getElementById('display1').value = "undefined"; // Logarithm of zero or negative numbers is undefined
+                    } else {
+                        document.getElementById('display1').value = Math.log(value).toFixed(4); // natural log
+                    }
+                }
+            
+                function pow() {
+                    let value = parseFloat(document.getElementById('display1').value);
+                    document.getElementById('display1').value = Math.pow(value, 2).toFixed(4); // square the value
+                }
+            </script>
+            </body>
+</html>
